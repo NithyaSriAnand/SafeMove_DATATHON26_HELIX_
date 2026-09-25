@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050505">
+<meta name="description" content="SafeMove — HELIX smart helmet and connected commuting ecosystem for DATATHON'26.">
+<title>SafeMove · HELIX · DATATHON'26</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="helix-motion-layer.css">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<header class="nav">
+  <a class="brand" href="#top"><span>HELIX</span><small>DATATHON'26</small></a>
+  <nav>
+    <a href="#problem">Problem</a><a href="#story">Story</a><a href="#components">Solution</a><a href="#redzone">Red Zone</a><a href="#architecture">Architecture</a><a href="#helmet">Helmet</a>
+  </nav>
+  <button class="nav-sim" id="navSim">SIMULATE ACCIDENT</button>
+</header>
+
+<main id="top">
+<section class="hero-video" id="hero">
+  <video class="hero-video-bg" autoplay muted loop playsinline preload="auto" poster="assets/helmet/001.jpg"><source src="assets/video/helix-helmet.mp4" type="video/mp4"></video>
+  <div class="hero-video-overlay"></div><div class="hero-grid"></div>
+  <div class="hero-content">
+    <p class="eyebrow">TEAM LARP STACK · DATATHON'26</p>
+    <h1>Safe<span>Move</span></h1>
+    <p class="hero-sub">AI-POWERED SMART COMMUTING ECOSYSTEM</p>
+    <p class="hero-copy">From impact to emergency response —<br>connected, intelligent, and fast.</p>
+    <div class="hero-actions"><a class="btn primary" href="#redzone">EXPLORE SAFEMOVE</a><button class="btn" id="heroSim">SIMULATE ACCIDENT</button></div>
+  </div>
+  <div class="hero-stats">
+    <div><b>&lt;1.5s</b><span>TARGET ALERT LATENCY</span></div><div><b>90%</b><span>TARGET FALSE-ALARM REDUCTION</span></div><div><b>~$18</b><span>PROTOTYPE SENSOR COST</span></div>
+  </div>
+  <div class="hero-bottom">SMART HELMET · ACCIDENT DETECTION · EMERGENCY ALERT SYSTEM</div>
+</section>
+
+<section id="problem" class="section problem-section">
+  <div class="section-heading"><p class="eyebrow red">01 / THE PROBLEM</p><h2>Every ride is a gamble against delayed response.</h2></div>
+  <div class="problem-grid">
+    <div class="problem-stat"><strong>70%</strong><p>of two-wheeler fatalities — as presented in the project context — are linked to delayed medical response and non-compliance with helmets.</p><small>PROBLEM / CONTEXT STATISTIC</small></div>
+    <div class="problem-points">
+      <article><i>01</i><div><h3>Delayed medical intervention</h3><p>Golden-hour minutes are lost while no one knows a crash happened.</p></div></article>
+      <article><i>02</i><div><h3>Driver fatigue & distraction</h3><p>Microsleep and attention issues can go undetected until it is too late.</p></div></article>
+      <article><i>03</i><div><h3>Unsafe driving & poor roads</h3><p>No real-time visibility for authorities to intervene or reroute.</p></div></article>
+      <article><i>04</i><div><h3>Inefficient transportation</h3><p>Fleets and commuters operate with limited safety analytics.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="story" class="section story-section">
+  <div class="story-photo"><img src="assets/story-bollineni.jpg" alt="Bollineni Hillside reference from the SafeMove poster"><span>BOLLINENI HILLSIDE</span></div>
+  <div class="story-copy"><p class="eyebrow gold">02 / THE STORY BEHIND SAFEMOVE</p><h2>Born from an incident we witnessed.</h2><p>This project was inspired by a real-life incident we witnessed at <b>Bollineni Hillside.</b></p><p>Seeing an accident unfold and witnessing how critical every minute becomes made us realize that detecting an accident is only the first step — sending the right help to the right place, fast, can make a difference.</p><blockquote>Born from an incident we witnessed. Built so that critical minutes don't go unnoticed.</blockquote></div>
+</section>
+
+<section id="components" class="section components-section">
+  <div class="section-heading"><p class="eyebrow green">03 / THE SOLUTION</p><h2>One connected platform. Three working parts.</h2><p class="lede">Affordable sensors and AI make everyday travel safer, smarter, and more efficient — starting at the helmet.</p></div>
+  <div class="component-grid">
+    <article class="component-card gold-card"><span>01</span><div class="component-icon">◒</div><h3>Smart Helmet</h3><p>HELIX — impact sensing, chin-strap compliance and in-cabin/helmet computer vision.</p></article>
+    <article class="component-card cyan-card"><span>02</span><div class="component-icon">⌁</div><h3>Accident Detection</h3><p>Dual-verification fuses accelerometer + G-force with strap/helmet state to reduce false alarms.</p></article>
+    <article class="component-card red-card"><span>03</span><div class="component-icon">!</div><h3>Emergency Alert System</h3><p>GPS-tagged crash data reaches the cloud dashboard and demonstrates a rapid responder workflow.</p></article>
+  </div>
+</section>
+
+<section id="redzone" class="section redzone-section">
+  <div class="section-heading"><p class="eyebrow red">04 / RED ZONE ALERTS</p><h2>Know the risk before you reach it.</h2><p class="lede">Interactive prototype: simulated accident history is converted into risk zones and rider warnings.</p></div>
+  <div class="redzone-wrap">
+    <div class="map-panel">
+      <div class="map-toolbar"><div><b>SAFEMOVE RISK MAP</b><small>DEMO / SIMULATION</small></div><div class="map-controls"><button id="zoomOut">−</button><button id="zoomIn">+</button></div></div>
+      <div class="map" id="riskMap">
+        <div class="map-road r1"></div><div class="map-road r2"></div><div class="map-road r3"></div><div class="map-road r4"></div>
+        <div class="zone zone-high z1" data-zone="high" style="left:68%;top:34%"><span></span><b>HIGH</b></div>
+        <div class="zone zone-high z2" data-zone="high" style="left:39%;top:65%"><span></span><b>HIGH</b></div>
+        <div class="zone zone-med z3" data-zone="medium" style="left:24%;top:35%"><span></span><b>MED</b></div>
+        <div class="zone zone-low z4" data-zone="low" style="left:79%;top:73%"><span></span><b>LOW</b></div>
+        <div class="accident a1" style="left:63%;top:29%">×</div><div class="accident a2" style="left:73%;top:39%">×</div><div class="accident a3" style="left:34%;top:70%">×</div><div class="accident a4" style="left:45%;top:61%">×</div><div class="accident a5" style="left:20%;top:32%">×</div>
+        <div class="route"></div>
+        <div class="rider" id="rider"><span></span><label>YOU</label></div>
+        <div class="map-alert" id="mapAlert"><b>⚠ RED ZONE AHEAD</b><span id="mapAlertText">High accident-risk area detected</span><small id="mapDistance">Distance: 420 m</small></div>
+        <div class="map-hud"><span><i class="dot red-dot"></i> HIGH</span><span><i class="dot amber-dot"></i> MEDIUM</span><span><i class="dot green-dot"></i> LOW</span></div>
+      </div>
+    </div>
+    <div class="redzone-side">
+      <div class="feature-card"><span class="mini-label">HOW IT WORKS</span><h3>Past incidents → risk zones → rider warning</h3><div class="risk-flow"><b>01</b><span>Accident history</span><b>02</b><span>Risk clustering</span><b>03</b><span>Approach warning</span></div></div>
+      <div class="feature-card stats-card"><div><strong id="incidentCount">12</strong><span>SIMULATED INCIDENTS</span></div><div><strong id="zoneDistance">420m</strong><span>TO HIGH-RISK ZONE</span></div></div>
+      <button class="btn full" id="riderSim">SIMULATE RIDER</button><button class="btn secondary full" id="safeRoute">VIEW SAFER ROUTE</button>
+      <p class="demo-note">This map is a local prototype simulation, not a live emergency or public accident database.</p>
+    </div>
+  </div>
+</section>
+
+<section id="architecture" class="section architecture-section">
+  <div class="section-heading"><p class="eyebrow gold">05 / SYSTEM ARCHITECTURE</p><h2>From sensor to signal, in six steps.</h2></div>
+  <div class="flow" id="systemFlow">
+    <div class="flow-node" data-step="1"><span>01</span><b>VEHICLE SENSORS</b><small>MPU6050 · chin-strap / helmet verification</small></div><i>→</i>
+    <div class="flow-node" data-step="2"><span>02</span><b>ESP32 / PI</b><small>Edge processing at point of impact</small></div><i>→</i>
+    <div class="flow-node" data-step="3"><span>03</span><b>BLE / WI-FI / GSM</b><small>Low-power link to network</small></div><i>→</i>
+    <div class="flow-node" data-step="4"><span>04</span><b>CLOUD DATABASE</b><small>Telemetry ingested over network</small></div><i>→</i>
+    <div class="flow-node" data-step="5"><span>05</span><b>APP + DASHBOARD</b><small>Live fleet map and incident state</small></div><i>→</i>
+    <div class="flow-node alert-node" data-step="6"><span>06</span><b>EMERGENCY ALERT</b><small>Responder workflow</small></div>
+  </div>
+  <div class="live-flow"><span id="flowPacket"></span><b>LIVE DATA FLOW</b><small>Trigger the accident simulation to activate this pipeline.</small></div>
+</section>
+
+<section class="section simulation-section" id="simulation">
+  <div class="section-heading"><p class="eyebrow red">06 / END-TO-END DEMO</p><h2>See what happens after impact.</h2><p class="lede">A simulated prototype sequence — no real emergency services are contacted.</p></div>
+  <div class="simulator">
+    <div class="sim-head"><div><span class="status-dot"></span><b id="simStatus">SYSTEM READY</b></div><button class="btn" id="simButton">SIMULATE ACCIDENT</button></div>
+    <div class="timeline" id="timeline">
+      <article data-step="1"><span>01</span><div><b>IMPACT DETECTED</b><p>Accelerometer detects abnormal motion / G-force.</p></div></article>
+      <article data-step="2"><span>02</span><div><b>IMPACT VERIFIED</b><p>Dual verification checks accelerometer + helmet / chin-strap state.</p></div></article>
+      <article data-step="3"><span>03</span><div><b>GPS LOCATION CAPTURED</b><p>Simulated accident coordinates are attached to the event.</p></div></article>
+      <article data-step="4"><span>04</span><div><b>EDGE PROCESSING</b><p>ESP32 / Raspberry Pi processes the event locally.</p></div></article>
+      <article data-step="5"><span>05</span><div><b>CLOUD ALERT</b><p>Incident is transmitted to the SafeMove cloud workflow.</p></div></article>
+      <article data-step="6"><span>06</span><div><b>EMERGENCY ALERT</b><p>Dashboard receives the verified incident.</p></div></article>
+      <article data-step="7"><span>07</span><div><b>RESPONDER NOTIFIED</b><p>A simulated emergency notification is displayed.</p></div></article>
+    </div>
+    <div class="sim-result" id="simResult"><div><strong>ACCIDENT ALERT SENT</strong><span>SIMULATED PROTOTYPE RESULT</span></div><div><b>Location</b><span>Bollineni Hillside · Demo coordinates</span></div><div><b>Status</b><span id="responseStatus">Awaiting simulation</span></div><div><b>Timestamp</b><span id="simTime">—</span></div></div>
+    <button class="reset" id="resetSim">RESET SIMULATION</button>
+  </div>
+</section>
+
+<section id="helmet" class="section helmet-section">
+  <div class="section-heading"><p class="eyebrow gold">07 / INTERACTIVE HELMET</p><h2>Explore the hardware inside HELIX.</h2><p class="lede">Drag the helmet. Tap a hotspot to inspect the role of each component.</p></div>
+  <div class="viewer">
+    <canvas id="helmetCanvas" aria-label="360 degree HELIX helmet view"></canvas>
+    <div class="helmet-glow"></div>
+    <button class="hotspot h1" data-part="mpu">01</button><button class="hotspot h2" data-part="strap">02</button><button class="hotspot h3" data-part="camera">03</button><button class="hotspot h4" data-part="gps">04</button><button class="hotspot h5" data-part="esp">05</button><button class="hotspot h6" data-part="alert">06</button>
+    <div class="part-panel" id="partPanel"><span>SELECT A HOTSPOT</span><b>HELIX COMPONENT EXPLORER</b><p>Explore the engineering concept behind SafeMove.</p></div>
+    <div class="viewer-bar"><span>360° HELMET VIEW · DRAG TO ROTATE</span><span id="frameCounter">01 / 192</span></div><button id="spinButton">AUTO SPIN</button>
+  </div>
+  <div class="detail-grid"><div><h3>MPU6050</h3><p>Detects acceleration and abnormal impact.</p></div><div><h3>Chin-strap sensor</h3><p>Checks helmet compliance as part of dual verification.</p></div><div><h3>GPS + edge processing</h3><p>Captures simulated accident location and processes the event at the edge.</p></div></div>
+</section>
+
+<section class="section vision-section">
+  <div class="section-heading"><p class="eyebrow cyan">08 / COMPUTER VISION</p><h2>Helmet watches the road for you.</h2></div>
+  <div class="vision-grid"><div class="camera-demo"><div class="scanline"></div><div class="face-outline"><i class="eye e1"></i><i class="eye e2"></i></div><div class="helmet-box">HELMET DETECTED <b>98%</b></div><div class="landmarks">● ● ● ● ● ● ● ● ● ●</div><span class="cam-label">SIMULATED CAMERA UI</span></div><div class="vision-info"><article><b>Eye Aspect Ratio</b><span>Tracks drowsiness.</span></article><article><b>Helmet Detection</b><span>Ensures compliance.</span></article><article><b>MediaPipe + OpenCV</b><span>Captures landmarks and computes EAR.</span></article><article><b>TensorFlow Lite</b><span>Lightweight edge inference concept.</span></article><div class="status-strip"><span>HELMET: DETECTED</span><span>EYES: MONITORED</span><span>DROWSINESS: NORMAL</span></div></div></div>
+</section>
+
+<section class="section tech-section">
+  <div class="section-heading"><p class="eyebrow gold">09 / TECH STACK</p><h2>Built with modern, reliable tech.</h2></div>
+  <div class="tech-grid"><div><span>HARDWARE</span><p>ESP32 · Raspberry Pi · MPU6050 · GPS</p></div><div><span>AI & VISION</span><p>OpenCV · MediaPipe · TensorFlow Lite</p></div><div><span>APP & WEB</span><p>Flutter · React · HTML · CSS · JavaScript</p></div><div><span>BACKEND</span><p>Node.js · Flask · Express.js · Socket.io · Firebase</p></div><div><span>MAPS</span><p>OpenStreetMap concept / simulated local demo</p></div><div><span>COMMUNICATION</span><p>Bluetooth · Wi-Fi · GSM · LoRa</p></div></div>
+</section>
+
+<section class="section metrics-section">
+  <div class="section-heading"><p class="eyebrow">10 / METRICS</p><h2>Keep the claims clear.</h2></div>
+  <div class="metrics"><div><strong>&lt;1.5s</strong><span>TARGET ALERT LATENCY</span></div><div><strong>90%</strong><span>TARGET FALSE-ALARM REDUCTION</span></div><div><strong>~$18</strong><span>PROTOTYPE SENSOR COST</span></div><div><strong>&lt;$60</strong><span>ESTIMATED COMPLETE UNIT COST</span></div></div>
+  <p class="metric-note">70% is retained as the project’s problem/context statistic. Prototype targets and cost estimates are labelled as such rather than presented as independently verified real-world results.</p>
+</section>
+
+<section class="section deployment-section">
+  <div class="section-heading"><p class="eyebrow">11 / ECOSYSTEM</p><h2>Designed for safer riders and communities.</h2></div>
+  <div class="content-grid two"><div><h3>Customers</h3><p>Two-wheeler riders, delivery fleets and insurers are existing target groups in the project concept.</p></div><div><h3>Revenue</h3><p>Hardware purchase, fleet subscription, insurance partnerships, and institutional deployment are existing project pathways.</p></div><div><h3>Privacy</h3><p>Personal data is encrypted, necessary location data is used, consent is required, and alerts are verified.</p></div><div><h3>Response</h3><p>Cloud telemetry, live dashboard state and emergency workflows connect the helmet to the wider SafeMove ecosystem.</p></div></div>
+</section>
+
+<footer class="footer"><span>HELIX · SafeMove</span><span>DATATHON'26 · SMARTER ROADS, SAFER TOMORROWS.</span></footer>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
